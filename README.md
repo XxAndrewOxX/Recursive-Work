@@ -1,16 +1,15 @@
-# Recursive-Work
 public class RecursivePractice {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//fibonacci2(9);
-		System.out.println(sumOfDigits(0122));
-		//PowersOf2(3);
-		//PowersOf22(4);
-		//PowersOfNum(14, 9);
-		//isPalindrome("dragon");
-		//numberOfDigits(36);
-		//isPalinedromeRecursion("Box");
+		//sumOfDigits(199)
+		//PowersOf2(3)
+		//PowersOf22(5);
+		//PowersOfNum(3, 3);
+		//isPalindrome("bob");
+		//numberOfDigits(390906)
+		//isPalindromeRecursion("racecar");
 		
 		
 		
@@ -26,34 +25,33 @@ public class RecursivePractice {
 	}
 	public static int PowersOf2( int exp){
 		int product = 1;
-		for(int i =0; i<=product; i++){
+		for(int i =1; i<=exp; i++){
 			product *=2;
 		}
 		return product;
 	}
 	public static int PowersOf22(int exp){
-		if( exp >0)
+		if( exp >1)
 			return 2* PowersOf22( exp-1);
 		else
-			return exp;
+			return 2;
 	}
 	public static int PowersOfNum(int base,int exp){
-		 if(exp>0)
+		 if(exp>1)
 			 	return base * PowersOfNum(base, exp-1);
 		 else
 			 return base;
 		
 	}
 	public static boolean isPalindrome(String str){
-		int len = str.length();
-		String	str1 = str.substring(0, len/2);
-		String str2 = str.substring(len/2);
-		if((str2+str1).equals(str)){
-			return true;
-		}
-		else{
-			return false;
-		}
+		int n = str.length();
+		  for (int i = 0; i < (n/2); ++i) {
+		     if (str.charAt(i) != str.charAt(n - i - 1)) {
+		         return false;
+		     }
+		  }
+
+		  return true;
 		}
 	public static int numberOfDigits(int num){
 		if(num >0){
@@ -63,33 +61,21 @@ public class RecursivePractice {
 		return 0;
 	}
 	}
-	public static boolean isPalinedromeRecursion( String str){
-		if( str.charAt(0) == str.charAt(str.length()-1)){
-			return isPalinedromeRecursion(str.substring(1, str.length()-1));
-		}
-		else if (str.length() == 0 || str.length() == 1){
-			return true;
-		}
-		else
-			return false;
+	
+		
+	public static boolean isPalindromeRecursion(String str) { 
+		if (str == "") { return false; } 
+		String reversed = reverse(str); 
+		return str.equals(reversed); } 
+	
+	public static String reverse(String str) 
+	{ if (str == null) { return null; } 
+	if (str.length() <= 1) { return str; }
+	return reverse(str.substring(1)) + str.charAt(0); 
 	}
 
+	
 
-	/*public static String fibonacci2(int term){
-		if(term>2)
-			return  fibonacci1(term-1) +""+ fibonacci1(term-2) ;
-		else if(term<2 && term>0)
-			return " ,"+fibonacci1(1) ;
-		else{
-			return " ,"+fibonacci1(2);	
-				}
-	}
-	public static int fibonacci1(int num) { 
-		if (num == 1) { return 1; } 
-		if (num == 2) { return 1; } 
-		return fibonacci1(num - 1) + fibonacci1(num - 2); }
-
-	} */
 	public static int fibonacci1(int term)  {
 	    if(term == 0)
 	        return 0;
